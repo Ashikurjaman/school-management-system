@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get("/",[AuthController::class,"login"]);
 Route::post("/login",[AuthController::class,"AuthLogin"]);
 Route::get("/logout",[AuthController::class,"AuthLogout"]);
+Route::get("/forget-password",[AuthController::class,"ForgetPassword"]);
+Route::post("/forget-password",[AuthController::class,"PostForgetPassword"]);
 
 
 Route::get('admin/dashboard', function () {
