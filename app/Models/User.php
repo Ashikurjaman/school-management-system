@@ -43,5 +43,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
+    static function emailCheck($email){
+        return User::where('email','=',$email)->first();
+    }
+    static function tokenCheck($token){
+        return User::where('remember_token','=',$token)->first();
+    }
 }

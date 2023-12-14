@@ -24,6 +24,8 @@ Route::post("/login",[AuthController::class,"AuthLogin"]);
 Route::get("/logout",[AuthController::class,"AuthLogout"]);
 Route::get("/forget-password",[AuthController::class,"ForgetPassword"]);
 Route::post("/forget-password",[AuthController::class,"PostForgetPassword"]);
+Route::get("/reset/{token}",[AuthController::class,"Reset"]);
+Route::post("/reset/{token}",[AuthController::class,"PostReset"]);
 
 
 Route::get('admin/dashboard', function () {
