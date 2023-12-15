@@ -49,4 +49,8 @@ class User extends Authenticatable
     static function tokenCheck($token){
         return User::where('remember_token','=',$token)->first();
     }
+
+    static function userData(){
+        return User::all();
+    }
 }
