@@ -11,7 +11,7 @@ User List
 @section('content')
 
 
-
+@include('_message')
 <div class="card">
               <div class="card-header ">
                 <div class="col-sm-6 float-right">
@@ -44,8 +44,9 @@ User List
 
                       <td>{{$users->created_at}}</td>
                       <td>
-                        <a class="btn btn-info" href="">Edit</a>
-                        <a class="btn btn-danger" href="">Delete</a>
+                        <a class="btn btn-info text-xs m-1" href="{{url('admin/list/edit/'. $users->id)}}">Edit</a>
+                        <a class="btn btn-warning text-xs m-1" href="{{url('admin/list/void/'. $users->id)}}">Void</a>
+                        <a class="btn btn-danger text-xs m-1" href="{{url('admin/list/delete/'. $users->id)}}">Delete</a>
                       </td>
                       <td>
                         @endforeach

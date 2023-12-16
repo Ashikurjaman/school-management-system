@@ -43,6 +43,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    static function userEditData($id){
+        return User::find($id);
+    }
+
     static function emailCheck($email){
         return User::where('email','=',$email)->first();
     }
@@ -51,6 +55,6 @@ class User extends Authenticatable
     }
 
     static function userData(){
-        return User::all();
+        return User::where('void','=',1)->get();
     }
 }

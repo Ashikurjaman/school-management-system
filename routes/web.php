@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Route::get("/",[AuthController::class,"login"]);
 Route::post("/login",[AuthController::class,"AuthLogin"]);
@@ -35,7 +33,11 @@ Route::get('admin/dashboard', function () {
 Route::get('admin/list', [AdminController::class,'list']);
 Route::get('admin/list/add', [AdminController::class,'Add']);
 Route::post('admin/list/add', [AdminController::class,'insert']);
-// Route::post('admin/list/save', [AdminController::class,'SaveData']);
+Route::get('admin/list/edit/{id}', [AdminController::class,'Edit']);
+Route::post('admin/list/edit/{id}', [AdminController::class,'Update']);
+Route::get('admin/list/delete/{id}', [AdminController::class,'Delete']);
+Route::get('admin/list/void/{id}', [AdminController::class,'Void']);
+
 
 
 Route::group(["middleware" => 'admin'],function(){

@@ -1,10 +1,10 @@
 @extends('layout.app')
 
 @section('page-title')
-Add New
+User Edit
 @endsection
 @section('title')
-Add New
+User Edit
 @endsection
 
 
@@ -26,11 +26,11 @@ Add New
                 <div class="card-body">
                   <div class="form-group">
                     <label >Name</label>
-                    <input type="text" name="name" class="form-control"value="{{ old('name') }}"  placeholder="Name">
+                    <input type="text" name="name" class="form-control" value="{{old('name',$user->name)}}"  placeholder="Name">
                   </div>
                   <div class="form-group">
                     <label >Email</label>
-                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  placeholder="email">
+                    <input type="email" name="email" class="form-control" value="{{old('name',$user->email)}}"  placeholder="email">
                     <div style="color:brown">{{$errors->first('email')}}</div>
                   </div>
                   <div class="form-group">
@@ -39,7 +39,7 @@ Add New
                   </div>
                   <div class="form-group">
                     <label >User type</label>
-                    <input type="number" class="form-control" name="type" placeholder="type">
+                    <input type="number" class="form-control" value="{{$user->user_type}}" name="type" placeholder="type">
                   </div>
                 </div>
                 <div class="card-footer">
