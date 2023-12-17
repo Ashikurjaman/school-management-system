@@ -55,6 +55,6 @@ class User extends Authenticatable
     }
 
     static function userData(){
-        return User::where('void','=',1)->get();
+        return User::where('void','=',1)->paginate(2);
     }
 }
