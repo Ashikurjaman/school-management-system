@@ -14,9 +14,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
 
-  </div>
+  </div> -->
 
   <!-- Navbar -->
   @include('components.header')

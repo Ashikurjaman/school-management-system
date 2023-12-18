@@ -3,9 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+
+
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Request;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -51,10 +56,29 @@ class User extends Authenticatable
         return User::where('email','=',$email)->first();
     }
     static function tokenCheck($token){
-        return User::where('remember_token','=',$token)->first();
+        return self::where('remember_token','=',$token)->first();
     }
 
     static function userData(){
-        return User::where('void','=',1)->paginate(2);
+        $return  =  self::select('users.*')-> where('void','=',1);
+
+        if(!empty( Request::get('email'))){
+
+            $return = $return->where('name','like', '%'.urlencode(Request::get('email')).'%');
+
+        }
+        if(!empty( Request::get('name'))){
+
+            $return = $return->where('name','like','%'.Request::get('name').'%');
+
+        }
+        if(!empty( Request::get('date'))){
+
+            $return = $return->whereDate('created_at','=',Request::get('date'));
+
+        }
+        $return = $return->paginate(2);
+
+        return $return;
     }
 }

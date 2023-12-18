@@ -29,17 +29,24 @@ User List
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label>Name</label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}"
+                        <input type="text" name="name" class="form-control" value="{{ urldecode(Request::get('name')) }}"
                             placeholder="Name">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" value="{{ old('email') }}"
+                        <input type="email" name="email" class="form-control" value="{{ urldecode(Request::get('email')) }}"
                             placeholder="email">
 
                     </div>
                     <div class="form-group col-md-3">
-                        <button type="submit" class="btn btn-primary" style="  margin-top: 32px">Submit</button>
+                        <label>Date</label>
+                        <input type="Date" name="date" class="form-control" value="{{ urldecode(Request::get('date')) }}"
+                            placeholder="date">
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="submit" class="btn btn-primary" style="  margin-top: 32px">Search</button>
+                        <a href="{{url('admin/list')}}" type="submit" class="btn btn-info" style="  margin-top: 32px">Reset</a>
                     </div>
                 </div>
             </form>
@@ -73,7 +80,7 @@ User List
                         <td>{{$users->name}}</td>
                         <td>{{$users->email}}</td>
 
-                        <td>{{$users->created_at}}</td>
+                        <td>{{date('d-m-y h:i a',strtotime($users->created_at))}}</td>
                         <td>
                             <a class="btn btn-info text-xs m-1" href="{{url('admin/list/edit/'. $users->id)}}">Edit</a>
                             <a class="btn btn-warning text-xs m-1"
