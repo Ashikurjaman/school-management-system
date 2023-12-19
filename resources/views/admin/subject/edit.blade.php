@@ -1,9 +1,9 @@
 @extends('layout.app')
 @section('page-title')
-Add New Class
+Edit Subject
 @endsection
 @section('title')
-Add New Class
+Edit Subject
 @endsection
 @section('content')
             <div class="container-fluid">
@@ -16,10 +16,29 @@ Add New Class
                             @csrf
                               <div class="card-body ">
                                  <div class="form-group">
-                                    <label >Name</label>
+                                    <label >Subject Name</label>
                                     <input type="text" name="name" class="form-control"value="{{$data->name }}"  placeholder="Name">
 
                                             </div>
+
+                                 <div class="form-group">
+                                    <label >Subject Code</label>
+                                    <input type="text" name="subject_code" class="form-control"value="{{$data->subject_code }}"  placeholder="Subject code">
+
+                                 </div>
+
+                                 <div class="form-group">
+                                    <label >Subject Type</label>
+                                    <select class="form-control" name="subject_type" >
+
+                                                    <option {{($data->subject_type == 'Practical') ? 'selected' :''}} value="Practical">Practical</option>
+
+                                                    <option {{($data->subject_type == 'Theory') ? 'selected' :''}} value="Theory">Theory</option>
+                                                    </select>
+
+                                            </div>
+
+
                                             <div class="form-group">
                                                 <label >Status</label>
                                                 <select class="form-control" name="status" id="">
@@ -27,11 +46,7 @@ Add New Class
                                                     <option {{($data->status == 0) ? 'selected' :''}} value="0">Inactive</option>
 
                                                     <option {{($data->status == 1) ? 'selected' :''}} value="1">Active</option>
-
-
-
-
-                                                </select>
+                                                 </select>
                                             </div>
                                             </div>
                                             <div class="card-footer">

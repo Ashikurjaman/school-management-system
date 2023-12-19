@@ -19,7 +19,7 @@ class ClassModel extends Model
 
     static function classGetData(){
         $return =  self::select('class.*','users.name as created_by_name')
-        ->join('users','users.id','class.created_by')->where('class.void','=',1);
+        ->join('users','users.id','class.created_by')->where('class.void','=',1)->where('class.status','=',1);
 
 
         if(!empty( Request::get('name'))){
