@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Hash;
 class AdminController extends Controller
 {
 
-    public function list(){
+    public function list(Request $request){
         $users = User::userData();
+        // dd($request);
         return view('admin.admin.list',['user'=> $users]);
     }
     public function Add(){

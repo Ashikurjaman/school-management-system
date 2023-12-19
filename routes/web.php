@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,17 @@ Route::get('admin/list/edit/{id}', [AdminController::class,'Edit']);
 Route::post('admin/list/edit/{id}', [AdminController::class,'Update']);
 Route::get('admin/list/delete/{id}', [AdminController::class,'Delete']);
 Route::get('admin/list/void/{id}', [AdminController::class,'Void']);
+
+
+// class route
+
+Route::get('admin/class/list', [ClassController::class,'list']);
+Route::get('class/list/add', [ClassController::class,'add']);
+Route::post('class/list/add', [ClassController::class,'insert']);
+Route::get('class/list/edit/{id}', [ClassController::class,'Edit']);
+Route::post('class/list/edit/{id}', [ClassController::class,'Update']);
+Route::get('class/list/delete/{id}', [ClassController::class,'Delete']);
+Route::get('class/list/void/{id}', [ClassController::class,'Void']);
 
 
 

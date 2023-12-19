@@ -64,7 +64,7 @@ class User extends Authenticatable
 
         if(!empty( Request::get('email'))){
 
-            $return = $return->where('name','like', '%'.urlencode(Request::get('email')).'%');
+            $return = $return->where('email','like', '%'.Request::get('email').'%');
 
         }
         if(!empty( Request::get('name'))){
@@ -77,7 +77,7 @@ class User extends Authenticatable
             $return = $return->whereDate('created_at','=',Request::get('date'));
 
         }
-        $return = $return->paginate(2);
+        $return = $return->paginate(10);
 
         return $return;
     }
