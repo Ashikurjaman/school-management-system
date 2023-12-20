@@ -44,6 +44,11 @@ class Subject extends Model
         return $return;
     }
 
+    static function getSubject(){
+        $return =  self::select('subjects.*')
+        ->where('subjects.void','=',1)->where('subjects.status','=',1)->get();
+        return $return;
+    }
     static function subjectEditData($id){
         return self::find($id);
 

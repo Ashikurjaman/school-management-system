@@ -40,6 +40,12 @@ class ClassModel extends Model
 
     }
 
+    static function getClass(){
+        $return =  self::select('class.*')
+        ->where('class.void','=',1)->where('class.status','=',1)->get();
+        return $return;
+    }
+
     static function userEditData($id){
         return self::find($id);
     }

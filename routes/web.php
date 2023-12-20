@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubjectClassController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,20 @@ Route::get('subject/list/edit/{id}', [SubjectController::class,'Edit']);
 Route::post('subject/list/edit/{id}', [SubjectController::class,'Update']);
 Route::get('subject/list/delete/{id}', [SubjectController::class,'Delete']);
 Route::get('subject/list/void/{id}', [SubjectController::class,'Void']);
+
+
+
+
+// assign_subject
+Route::get('admin/assign_subject/list', [SubjectClassController::class,'list']);
+Route::get('assign_subject/list/add', [SubjectClassController::class,'add']);
+Route::post('assign_subject/list/add', [SubjectClassController::class,'insert']);
+Route::get('assign_subject/list/edit/{id}', [SubjectClassController::class,'Edit']);
+Route::post('assign_subject/list/edit/{id}', [SubjectClassController::class,'Update']);
+Route::get('assign_subject/list/delete/{id}', [SubjectClassController::class,'Delete']);
+Route::get('assign_subject/list/void/{id}', [SubjectClassController::class,'Void']);
+
+
 
 
 
