@@ -32,6 +32,11 @@ Subject List
                         <input type="text" name="name" class="form-control" value="{{ Request::get('name') }}"
                             placeholder="Name">
                     </div>
+                    <div class="form-group col-md-3">
+                        <label>Subject type</label>
+                        <input type="text" name="subject_type" class="form-control" value="{{ Request::get('subject_type') }}"
+                            placeholder="Subject type">
+                    </div>
 
                     <div class="form-group col-md-3">
                         <label>Date</label>

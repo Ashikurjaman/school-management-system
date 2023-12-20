@@ -27,6 +27,11 @@ class Subject extends Model
             $return = $return->where('subjects.name','like','%'.Request::get('name').'%');
 
         }
+        if(!empty( Request::get('subject_type'))){
+
+            $return = $return->where('subjects.subject_type','like','%'.Request::get('subject_type').'%');
+
+        }
         if(!empty( Request::get('date'))){
 
             $return = $return->whereDate('subjects.created_at','=',Request::get('date'));
